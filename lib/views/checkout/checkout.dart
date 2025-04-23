@@ -1,5 +1,6 @@
 import 'package:bkash/views/checkout/helpers/nagad.dart';
 import 'package:bkash/views/checkout/helpers/payment_helper.dart';
+import 'package:bkash/views/checkout/helpers/sslcommerz.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,6 +38,11 @@ class _CheckoutState extends State<Checkout> {
     {
       'name': 'Payoneer',
       'logo': 'https://logowik.com/content/uploads/images/payoneer8989.jpg',
+    },
+    {
+      'name': 'SSLCOMMERZ',
+      'logo':
+          'https://play-lh.googleusercontent.com/OpdgJSX_O1buqjnPOcTmGWmsA7zOiQD9a5L9gsk9DgWz1yQWR2IgnIuSpvXjYw1LzA=w240-h480-rw',
     },
   ];
 
@@ -112,6 +118,11 @@ class _CheckoutState extends State<Checkout> {
                   Get.to(() => const BkashPaymentPage());
                 } else if (selected == 'nagad') {
                   Get.to(() => const NagadPaymentPage());
+                } else if (selected == 'sslcommerz') {
+                  // নিচের লাইনটা তখন কাজ করবে যখন তুমি SSLCOMMERZPaymentPage তৈরি করো
+                  Get.to(
+                    () => SSLCOMMERZPayment(amount: 100.00),
+                  );
                 } else {
                   Get.snackbar(
                     'Oops!',
